@@ -14,6 +14,15 @@ enum layer_number {
 #define KC_RAIS MO(_RAISE)          // Raise layer
 #define KC_RAI0 LT(_RAISE, KC_P0)   // Hold to raise, tap for numpad 0
 
+#define KC_F_S  LSFT_T(KC_F)   // Home row mods
+#define KC_D_C  LCTL_T(KC_D)
+#define KC_S_A  LALT_T(KC_S)
+#define KC_A_G  LGUI_T(KC_A)
+#define KC_J_S  LSFT_T(KC_J)
+#define KC_K_C  LCTL_T(KC_K)
+#define KC_L_A  LALT_T(KC_L)
+#define KC_SC_G LGUI_T(KC_SCLN)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_KC(
@@ -22,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
          TAB  ,  Q   ,  W   ,  E   ,  R   ,  T   ,                         Y   ,  U   ,  I   ,  O   ,  P   , BSPC ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-         LCTL ,  A   ,  S   ,  D   ,  F   ,  G   ,                         H   ,  J   ,  K   ,  L   , SCLN , QUOT ,
+         LCTL , A_G  , S_A  , D_C  , F_S  ,  G   ,                         H   , J_S  , K_C  , L_A  , SC_G , QUOT ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
          LSFT ,  Z   ,  X   ,  C   ,  V   ,  B   , LBRC ,          RBRC ,  N   ,  M   , COMM , DOT  , SLSH , RSFT ,
     // +------+------+------+------+------+------+------/        \------+------+------+------+------+------+------+
