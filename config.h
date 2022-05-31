@@ -7,7 +7,7 @@
 // #define EE_HANDS
 
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 100
+#define TAPPING_TERM 200
 
 // Sugar to automatically prefix `KC_` onto every keycode for cleaner keymaps
 #define LAYOUT_KC( \
