@@ -92,7 +92,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   if (!is_keyboard_master())
     return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
-  return rotation;
+  return OLED_ROTATION_270;
 }
 
 // When you add source files to SRC in rules.mk, you can use functions.
@@ -109,10 +109,30 @@ const char *read_keylogs(void);
 
 bool oled_task_user(void) {
   if (is_keyboard_master()) {
+    oled_write_ln_P(PSTR("LAYER"), false);
+    oled_write_ln_P(PSTR("-----"), false);
+
+    switch (get_highest_layer(layer_state)) {
+        case _QWERTY:
+            oled_write_ln_P(PSTR("QWERT"), false);
+            break;
+        case _RAISE:
+            oled_write_ln_P(PSTR("RAISE"), false);
+            break;
+        case _LOWER:
+            oled_write_ln_P(PSTR("LOWER"), false);
+            break;
+        case _ADJUST:
+            oled_write_ln_P(PSTR("ADJST"), false);
+            break;
+        default:
+            oled_write_ln_P(PSTR("ERROR"), false);
+    }
+      //
     // If you want to change the display of OLED, you need to change here
-    oled_write_ln(read_layer_state(), false);
-    oled_write_ln(read_keylog(), false);
-    oled_write_ln(read_keylogs(), false);
+    // oled_write_ln(read_layer_state(), false);
+    // oled_write_ln(read_keylog(), false);
+    // oled_write_ln(read_keylogs(), false);
     //oled_write_ln(read_mode_icon(keymap_config.swap_lalt_lgui), false);
     //oled_write_ln(read_host_led_state(), false);
     //oled_write_ln(read_timelog(), false);
