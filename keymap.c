@@ -10,63 +10,70 @@ enum layer_number {
 // Aliases
 #define KC_ KC_TRNS
 #define KC_xx KC_NO
+#define KC_PND KC_HASH              // Alias for UK keyboards
+
+#define KC_OSLA OSM(MOD_LALT)           // One shot modifiers
+#define KC_OSLG OSM(MOD_LGUI)
+#define KC_OSLC OSM(MOD_LCTL)
+#define KC_OSLS OSM(MOD_LSFT)
+#define KC_OSRA OSM(MOD_RALT)
+
 #define KC_LOWR MO(_LOWER)          // Lower layer
 #define KC_RAIS MO(_RAISE)          // Raise layer
-#define KC_RAI0 LT(_RAISE, KC_P0)   // Hold to raise, tap for numpad 0
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_KC(
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-         ESC  ,  1   ,  2   ,  3   ,  4   ,  5   ,                         6   ,  7   ,  8   ,  9   ,  0   , DEL  ,
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-         TAB  ,  Q   ,  W   ,  E   ,  R   ,  T   ,                         Y   ,  U   ,  I   ,  O   ,  P   , BSPC ,
+          xx  ,  Q   ,  W   ,  E   ,  R   ,  T   ,                         Y   ,  U   ,  I   ,  O   ,  P   ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-         LCTL ,  A   ,  S   ,  D   ,  F   ,  G   ,                         H   ,  J   ,  K   ,  L   , SCLN , QUOT ,
+          xx  ,  A   ,  S   ,  D   ,  F   ,  G   ,                         H   ,  J   ,  K   ,  L   , SCLN ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
-         LSFT ,  Z   ,  X   ,  C   ,  V   ,  B   , LBRC ,          RBRC ,  N   ,  M   , COMM , DOT  , SLSH , RSFT ,
+          xx  ,  Z   ,  X   ,  C   ,  V   ,  B   ,  xx ,            xx  ,  N   ,  M   , COMM , DOT  , SLSH ,  xx  ,
     // +------+------+------+------+------+------+------/        \------+------+------+------+------+------+------+
-                           LGUI , LALT , SPC  ,  LOWR  ,             RAIS  , ENT  , LALT , LGUI
+                            xx  ,  xx  , LSFT ,  LOWR  ,             RAIS  , SPC  ,  xx ,  xx
     //                   +------+------+------+------/              \------+------+------+------+
 ),
 
 [_LOWER] = LAYOUT_KC(
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-              ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  P7  ,  P8  ,  P9  ,  xx  ,  xx  ,
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-              , EXLM ,  AT  , HASH , DLR  , PERC ,                        TILD ,  P4  ,  P5  ,  P6  , EQL  ,      ,
+          xx  , ESC  ,  xx  ,  xx  ,  xx  , TAB  ,                        HOME , PGDN , PGUP , END  , VOLU ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-         GRV  , CIRC , AMPR , ASTR , NUHS , LABK ,                        RABK ,  P1  ,  P2  ,  P3  , UNDS ,  xx  ,
+          xx  , OSLA , OSLG , OSLC , OSLS , OSRA ,                        LEFT , DOWN ,  UP  , RGHT , VOLD ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
-         LCBR , NUBS , DOT  , COMM , PIPE , LBRC ,  xx  ,           xx  , RBRC ,  P0  , MINS , PLUS , SLSH , RCBR ,
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,           xx  , BSPC , DEL  , MPRV , MPLY , MNXT ,  xx ,
     // +------+------+------+------+------+------+------/        \------+------+------+------+------+------+------+
-                                ,      ,      ,       ,                    ,      ,      ,
+                            xx  ,  xx  ,  xx  ,       ,                    ,  ENT ,  xx  ,  xx
     //                   +------+------+------+------/              \------+------+------+------+
 ),
 
 [_RAISE] = LAYOUT_KC(
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-              ,  F1  ,  F2  ,  F3  ,  F4  ,  F5  ,                         F6  ,  F7  ,  F8  ,  F9  , F10  ,  F11  ,
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-          xx  , WH_L , WH_D , WH_U , WH_R ,  xx  ,                        HOME , PGDN , PGUP , END  ,  xx  ,  F12  ,
+          xx  ,  1   ,  2   ,  3   ,  4   ,  5   ,                         6   ,  7   ,  8   ,  9   ,  0   ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-          xx  , MS_L , MS_D , MS_U , MS_R ,  xx  ,                        LEFT , DOWN ,  UP  , RGHT ,  xx  ,  xx  ,
+          xx  , LABK ,  AT  , LPRN , LBRC , LCBR ,                        EQL  , QUES , QUOT , PLUS , NUBS ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
-          xx  , ACL0 , ACL1 , ACL2 , BTN3 , BTN2 ,  xx  ,           xx  , MPRV , VOLD , VOLU , MNXT , MUTE , MPLY ,
+          xx  , RABK , ASTR , RPRN , RBRC , RCBR ,  xx  ,           xx  , UNDS , EXLM , DQUO , MINS , SLSH ,  xx  ,
     // +------+------+------+------+------+------+------/        \------+------+------+------+------+------+------+
-                                ,      , BTN1 ,       ,                    ,      ,      ,
+                            xx  ,  xx  ,  xx  ,       ,                    ,  xx  ,  xx  ,  xx
     //                   +------+------+------+------/              \------+------+------+------+
 ),
 
-[_ADJUST] = LAYOUT_KC_LCAG(
+[_ADJUST] = LAYOUT_KC(
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
           xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-          xx  ,  Q   ,  W   ,  E   ,  R   ,  T   ,                         Y   ,  U   ,  I   ,  O   ,  P   ,  xx  ,
+          xx  ,  F1  ,  F2  ,  F3  ,  F4  ,  F5  ,                         F6  ,  F7  ,  F8  ,  F9  , F10  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-          xx  ,  A   ,  S   ,  D   ,  F   ,  G   ,                         H   ,  J   ,  K   ,  L   ,  xx  ,  xx  ,
+          xx  , OSLA , OSLG , OSLC , OSLS , OSRA ,                        F11  , F12  ,  xx  ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
-          xx  ,  Z   ,  X   ,  C   ,  V   ,  B   ,  xx  ,           xx  ,  N   ,  M   ,  xx  ,  xx  ,  xx  ,  xx  ,
+          xx  , GRV  , PIPE , AMPR , NUHS , PERC ,  xx  ,           xx  , DLR  , PND  , TILD ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+------/        \------+------+------+------+------+------+------+
                             xx  ,  xx  ,  xx  ,   xx  ,                xx  ,  xx  ,  xx  ,  xx
     //                   +------+------+------+------/              \------+------+------+------+
