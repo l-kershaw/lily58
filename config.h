@@ -7,8 +7,9 @@
 // #define EE_HANDS
 
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 200
+#define TAPPING_TERM 2000
 #define IGNORE_MOD_TAP_INTERRUPT
+#define ONESHOT_TIMEOUT 5000
 
 // Sugar to automatically prefix `KC_` onto every keycode for cleaner keymaps
 #define LAYOUT_KC( \
